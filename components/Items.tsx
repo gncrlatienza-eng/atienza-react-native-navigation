@@ -51,11 +51,26 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-const Items: React.FC = () => {
+interface ItemsProps {
+  searchQuery?: string;
+}
+
+const Items: React.FC<ItemsProps> = ({ searchQuery = '' }) => {
   const { addToCart } = useCart();
   const { colors } = useTheme();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+
+  // Filter products based on search query
+  const filteredProducts = PRODUCTS.filter((product) => {
+    if (!searchQuery) return true;
+    
+    const query = searchQuery.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query)
+    );
+  });
 
   const handleProductPress = (product: Product) => {
     setSelectedProduct(product);
@@ -112,16 +127,26 @@ const Items: React.FC = () => {
     </TouchableOpacity>
   );
 
+  // Show message when no products match search
+  const renderEmptyList = () => (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+      <Text style={{ color: colors.textSecondary, fontSize: 16, textAlign: 'center' }}>
+        No products found for "{searchQuery}"
+      </Text>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={PRODUCTS}
+        data={filteredProducts}
         renderItem={renderProduct}
         keyExtractor={(item) => item.id}
         numColumns={2}
         contentContainerStyle={styles.listContent}
-        columnWrapperStyle={styles.row}
+        columnWrapperStyle={filteredProducts.length > 0 ? styles.row : undefined}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={searchQuery ? renderEmptyList : null}
       />
       
       <ItemModal

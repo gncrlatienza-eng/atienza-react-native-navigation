@@ -7,6 +7,7 @@ export type ThemeType = 'light' | 'dark';
 export interface ThemeColors {
   background: string;
   cardBackground: string;
+  card: string; // ADD THIS LINE
   text: string;
   textSecondary: string;
   primary: string;
@@ -18,6 +19,7 @@ export interface ThemeColors {
 const lightTheme: ThemeColors = {
   background: '#F5F5F7',
   cardBackground: '#FFFFFF',
+  card: '#FFFFFF', // ADD THIS LINE
   text: '#000000',
   textSecondary: '#6E6E73',
   primary: '#007AFF',
@@ -29,6 +31,7 @@ const lightTheme: ThemeColors = {
 const darkTheme: ThemeColors = {
   background: '#000000',
   cardBackground: '#1C1C1E',
+  card: '#1C1C1E', // ADD THIS LINE
   text: '#FFFFFF',
   textSecondary: '#8E8E93',
   primary: '#0A84FF',

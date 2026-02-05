@@ -44,6 +44,14 @@ const Navbar: React.FC = () => {
             </View>
           )}
         </TouchableOpacity>
+
+        {/* Checkout Button */}
+        <TouchableOpacity
+          style={styles.iconButton}
+          onPress={() => navigation.navigate('Checkout')}
+        >
+          <Ionicons name="card" size={24} color={colors.text} />
+        </TouchableOpacity>
       </View>
     </View>
   );

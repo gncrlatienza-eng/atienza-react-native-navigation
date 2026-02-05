@@ -51,7 +51,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         placeholderTextColor={isDark ? 'rgba(235, 235, 245, 0.6)' : 'rgba(60, 60, 67, 0.6)'}
         value={searchQuery}
         onChangeText={handleSearch}
-        clearButtonMode="never" // We'll use custom clear button
+        clearButtonMode="never"
         returnKeyType="search"
       />
       
