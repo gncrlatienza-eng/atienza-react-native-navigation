@@ -62,8 +62,17 @@ const Items: React.FC = () => {
     setModalVisible(true);
   };
 
-  const handleAddToCart = (product: Product) => {
-    addToCart(product);
+  // Updated: Open modal instead of adding directly
+  const handleAddToCartPress = (product: Product) => {
+    setSelectedProduct(product);
+    setModalVisible(true);
+  };
+
+  const handleAddToCart = (product: Product, quantity: number) => {
+    // Add the product with the specified quantity
+    for (let i = 0; i < quantity; i++) {
+      addToCart(product);
+    }
   };
 
   const renderProduct = ({ item }: { item: Product }) => (
@@ -96,7 +105,7 @@ const Items: React.FC = () => {
       
       <TouchableOpacity
         style={[styles.addButton, { backgroundColor: colors.primary }]}
-        onPress={() => handleAddToCart(item)}
+        onPress={() => handleAddToCartPress(item)}
       >
         <Text style={styles.addButtonText}>Add to Cart</Text>
       </TouchableOpacity>

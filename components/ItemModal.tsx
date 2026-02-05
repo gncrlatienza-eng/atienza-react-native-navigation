@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal, View, Text, Image, TouchableOpacity,} from 'react-native';
+import React, { useState } from 'react';
+import { Modal, View, Text, Image, TouchableOpacity } from 'react-native';
 import { Product } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,7 +9,7 @@ interface ItemModalProps {
   visible: boolean;
   product: Product | null;
   onClose: () => void;
-  onAddToCart: (product: Product) => void;
+  onAddToCart: (product: Product, quantity: number) => void;
 }
 
 const ItemModal: React.FC<ItemModalProps> = ({
@@ -19,8 +19,31 @@ const ItemModal: React.FC<ItemModalProps> = ({
   onAddToCart,
 }) => {
   const { colors } = useTheme();
+  const [quantity, setQuantity] = useState(1);
+
+  // Reset quantity when modal opens
+  React.useEffect(() => {
+    if (visible) {
+      setQuantity(1);
+    }
+  }, [visible]);
 
   if (!product) return null;
+
+  const handleIncrement = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const handleDecrement = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const totalPrice = product.price * quantity;
+
+  const handleAddToCart = () => {
+    onAddToCart(product, quantity);
+    onClose();
+  };
 
   return (
     <Modal
@@ -47,18 +70,44 @@ const ItemModal: React.FC<ItemModalProps> = ({
 
           {/* Product Price */}
           <Text style={[styles.price, { color: colors.primary }]}>
-            ${product.price.toFixed(2)}
+            ₱{product.price.toLocaleString()} each
           </Text>
+
+          {/* Quantity Controls */}
+          <View style={styles.quantityContainer}>
+            <TouchableOpacity
+              style={[styles.quantityButton, { backgroundColor: colors.primary }]}
+              onPress={handleDecrement}
+            >
+              <Ionicons name="remove" size={24} color="#fff" />
+            </TouchableOpacity>
+
+            <Text style={[styles.quantityText, { color: colors.text }]}>
+              {quantity}
+            </Text>
+
+            <TouchableOpacity
+              style={[styles.quantityButton, { backgroundColor: colors.primary }]}
+              onPress={handleIncrement}
+            >
+              <Ionicons name="add" size={24} color="#fff" />
+            </TouchableOpacity>
+          </View>
+
+          {/* Total Price */}
+          <View style={styles.totalContainer}>
+            <Text style={[styles.totalLabel, { color: colors.text }]}>Total:</Text>
+            <Text style={[styles.totalPrice, { color: colors.primary }]}>
+              ₱{totalPrice.toLocaleString()}
+            </Text>
+          </View>
 
           {/* Add to Cart Button */}
           <TouchableOpacity
             style={[styles.addButton, { backgroundColor: colors.primary }]}
-            onPress={() => {
-              onAddToCart(product);
-              onClose();
-            }}
+            onPress={handleAddToCart}
           >
-            <Text style={styles.addButtonText}>Add to Cart</Text>
+            <Text style={styles.addButtonText}>Add {quantity} to Cart</Text>
           </TouchableOpacity>
         </View>
       </View>
