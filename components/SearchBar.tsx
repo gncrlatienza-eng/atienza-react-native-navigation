@@ -33,7 +33,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <View style={[
       styles.container, 
-      { backgroundColor: isDark ? 'rgba(118, 118, 128, 0.24)' : 'rgba(142, 142, 147, 0.12)' }
+      { 
+        backgroundColor: isDark ? 'rgba(118, 118, 128, 0.24)' : 'rgba(142, 142, 147, 0.12)',
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+      }
     ]}>
       <Ionicons 
         name="search" 
@@ -45,7 +49,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
       <TextInput
         style={[
           styles.input,
-          { color: colors.text }
+          { 
+            color: colors.text,
+            paddingVertical: 8,
+          }
         ]}
         placeholder={placeholder}
         placeholderTextColor={isDark ? 'rgba(235, 235, 245, 0.6)' : 'rgba(60, 60, 67, 0.6)'}
