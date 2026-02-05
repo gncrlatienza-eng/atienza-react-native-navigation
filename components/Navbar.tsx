@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
 
   return (
     <View style={[styles.navbar, { backgroundColor: colors.cardBackground, borderBottomColor: colors.border }]}>
-      <Text style={[styles.title, { color: colors.text }]}>Store</Text>
+      <Text style={[styles.title, { color: colors.text }]}>RAM Store</Text>
       
       <View style={styles.rightSection}>
         {/* Theme Toggle */}

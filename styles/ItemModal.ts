@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
+  subname: {
+    fontSize: 15,
+    fontWeight: '700',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
   price: {
     fontSize: 28,
     fontWeight: '800',

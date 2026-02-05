@@ -5,43 +5,49 @@ import { useTheme } from '../context/ThemeContext';
 import ItemModal from './ItemModal';
 import styles from '../styles/Items';
 
-// Sample products data
+// Updated products data with local Ph prices and GB capacity
 const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'iPhone 15 Pro',
-    price: 999,
-    image: 'https://images.unsplash.com/photo-1696446702098-689c87aa0b90?w=400',
+    name: '8GB Kingston Fury Impact',
+    category: 'DDR4 3200MHz SODIMM',
+    price: 2995,
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400',
   },
   {
     id: '2',
-    name: 'AirPods Pro',
-    price: 249,
-    image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400',
+    name: '16GB Lexar Laptop RAM',
+    category: 'DDR4 3200MHz SODIMM',
+    price: 5995,
+    image: 'https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=400',
   },
   {
     id: '3',
-    name: 'MacBook Pro',
-    price: 1999,
-    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400',
+    name: '16GB Crucial High-Speed',
+    category: 'DDR5 4800MHz SODIMM',
+    price: 7695,
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400',
   },
   {
     id: '4',
-    name: 'Apple Watch',
-    price: 399,
-    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400',
+    name: '16GB Kingston ValueRAM',
+    category: 'DDR5 5600MHz SODIMM',
+    price: 9895,
+    image: 'https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=400',
   },
   {
     id: '5',
-    name: 'iPad Air',
-    price: 599,
-    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400',
+    name: '32GB Lexar Performance',
+    category: 'DDR5 5600MHz SODIMM',
+    price: 16995,
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400',
   },
   {
     id: '6',
-    name: 'Magic Keyboard',
-    price: 99,
-    image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400',
+    name: '32GB Crucial Pro',
+    category: 'DDR5 5600MHz SODIMM',
+    price: 18995,
+    image: 'https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=400',
   },
 ];
 
@@ -68,18 +74,31 @@ const Items: React.FC = () => {
     >
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.info}>
-        <Text style={[styles.name, { color: colors.text }]} numberOfLines={1}>
+        {/* Full Spec Badge */}
+        <Text style={{ 
+          color: colors.primary, 
+          fontSize: 20, 
+          fontWeight: 'bold', 
+          textTransform: 'uppercase' 
+        }}>
+          {item.category}
+        </Text>
+        
+        <Text style={[styles.name, { color: colors.text, fontWeight: '600' }]} numberOfLines={2}>
           {item.name}
         </Text>
-        <Text style={[styles.price, { color: colors.primary }]}>
-          ${item.price.toFixed(2)}
+        
+        {/* Price in PHP */}
+        <Text style={[styles.price, { color: colors.primary, marginTop: 4 }]}>
+          ₱{item.price.toLocaleString()}
         </Text>
       </View>
+      
       <TouchableOpacity
         style={[styles.addButton, { backgroundColor: colors.primary }]}
         onPress={() => handleAddToCart(item)}
       >
-        <Text style={styles.addButtonText}>Add</Text>
+        <Text style={styles.addButtonText}>Add to Cart</Text>
       </TouchableOpacity>
     </TouchableOpacity>
   );

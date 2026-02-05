@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Modal,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { Modal, View, Text, Image, TouchableOpacity,} from 'react-native';
 import { Product } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
@@ -47,6 +41,9 @@ const ItemModal: React.FC<ItemModalProps> = ({
 
           {/* Product Name */}
           <Text style={[styles.name, { color: colors.text }]}>{product.name}</Text>
+
+          {/* Product category */}
+          <Text style={[styles.subname, { color: colors.text }]}>{product.category}</Text>
 
           {/* Product Price */}
           <Text style={[styles.price, { color: colors.primary }]}>
