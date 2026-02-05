@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
+import ThemedStatusBar from './globalstyles/ThemedStatusBar';
 import Homepage from './pages/Homepage';
 
 // Define navigation types
@@ -17,6 +18,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <ThemeProvider>
+      <ThemedStatusBar />
       <CartProvider>
         <NavigationContainer>
           <Stack.Navigator
