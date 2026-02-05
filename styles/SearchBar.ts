@@ -4,19 +4,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    borderRadius: 50, // Full pill shape
+    paddingHorizontal: 16,
+    paddingVertical: 10,
     marginHorizontal: 16,
-    marginBottom: 16,
+    marginTop: 8,
+    marginBottom: 12,
   },
   searchIcon: {
     marginRight: 8,
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    paddingVertical: 2,
+    fontSize: 17,
+    paddingVertical: 4,
     fontWeight: '400',
   },
   clearButton: {
@@ -24,9 +25,9 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   clearButtonBackground: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

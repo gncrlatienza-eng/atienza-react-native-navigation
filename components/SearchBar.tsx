@@ -35,8 +35,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
       styles.container, 
       { 
         backgroundColor: isDark ? 'rgba(118, 118, 128, 0.24)' : 'rgba(142, 142, 147, 0.12)',
+        borderRadius: 50, // Fully rounded pill shape
         paddingVertical: 10,
-        paddingHorizontal: 12,
+        paddingHorizontal: 16,
+        marginTop: 8,
+        marginBottom: 12,
+        marginHorizontal: 16,
       }
     ]}>
       <Ionicons 
@@ -51,7 +55,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           styles.input,
           { 
             color: colors.text,
-            paddingVertical: 8,
+            paddingVertical: 4,
           }
         ]}
         placeholder={placeholder}
@@ -66,11 +70,18 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <TouchableOpacity onPress={clearSearch} style={styles.clearButton}>
           <View style={[
             styles.clearButtonBackground,
-            { backgroundColor: isDark ? 'rgba(235, 235, 245, 0.3)' : 'rgba(60, 60, 67, 0.3)' }
+            { 
+              backgroundColor: isDark ? 'rgba(235, 235, 245, 0.3)' : 'rgba(60, 60, 67, 0.3)',
+              width: 20,
+              height: 20,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }
           ]}>
             <Ionicons 
               name="close" 
-              size={14} 
+              size={12} 
               color={isDark ? '#fff' : '#000'} 
             />
           </View>

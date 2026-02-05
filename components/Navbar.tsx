@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BlurView } from 'expo-blur';
@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
       styles.navbar, 
       { 
         backgroundColor: 'transparent',
-        overflow: 'hidden',
+        paddingTop: Platform.OS === 'ios' ? (StatusBar.currentHeight || 44) : StatusBar.currentHeight || 0,
       }
     ]}>
       <BlurView 
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 20,
-        paddingTop: Platform.OS === 'ios' ? 60 : 20,
+        paddingTop: 8,
         paddingBottom: 12,
       }}>
         <Text style={[
