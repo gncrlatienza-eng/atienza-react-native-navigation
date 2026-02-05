@@ -2,42 +2,54 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    // Removed borderBottomWidth for clean iOS look
+    // Removed fixed backgroundColor - will be transparent with blur
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 5,
   },
   title: {
-    fontSize: 28,
-    fontWeight: '800',
+    fontSize: 34,
+    fontWeight: '700',
+    letterSpacing: 0.4,
   },
   rightSection: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   iconButton: {
-    marginRight: 15,
-    padding: 5,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cartButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
     position: 'relative',
   },
   badge: {
     position: 'absolute',
-    top: -8,
-    right: -8,
+    top: -4,
+    right: -4,
     minWidth: 20,
     height: 20,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 5,
+    borderWidth: 2,
   },
   badgeText: {
-    color: '#FFFFFF',
-    fontSize: 12,
+    color: '#fff',
+    fontSize: 11,
     fontWeight: '700',
   },
 });
