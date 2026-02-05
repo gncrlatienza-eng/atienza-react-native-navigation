@@ -2,15 +2,16 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   navbar: {
-    // Removed fixed backgroundColor - will be transparent with blur
-    shadowColor: '#000',
+    // Removed all borders and shadows
+    borderBottomWidth: 0,
+    shadowColor: 'transparent',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 0,
     },
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 5,
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
   },
   title: {
     fontSize: 34,

@@ -21,7 +21,10 @@ const Navbar: React.FC = () => {
       styles.navbar, 
       { 
         backgroundColor: 'transparent',
-        paddingTop: Platform.OS === 'ios' ? (StatusBar.currentHeight || 44) : StatusBar.currentHeight || 0,
+        paddingTop: Platform.OS === 'ios' ? (StatusBar.currentHeight || 15) : StatusBar.currentHeight || 0,
+        borderBottomWidth: 0, // Remove border
+        shadowOpacity: 0, // Remove shadow
+        elevation: 0, // Remove shadow on Android
       }
     ]}>
       <BlurView 
