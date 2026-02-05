@@ -6,6 +6,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import ThemedStatusBar from './globalstyles/ThemedStatusBar';
 import Homepage from './pages/Homepage';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 // Define navigation types
 export type RootStackParamList = {
@@ -30,7 +31,7 @@ export default function App() {
           >
             <Stack.Screen name="Home" component={Homepage} />
             <Stack.Screen name="Cart" component={Cart} />
-            {/* Checkout screen will be added later */}
+            <Stack.Screen name="Checkout" component={Checkout} />
           </Stack.Navigator>
         </NavigationContainer>
       </CartProvider>

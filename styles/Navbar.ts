@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 15,
-    borderBottomWidth: 1,
+    // Removed borderBottomWidth for clean iOS look
   },
   title: {
     fontSize: 28,
