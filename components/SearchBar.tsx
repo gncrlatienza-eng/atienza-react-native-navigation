@@ -35,7 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       styles.container, 
       { 
         backgroundColor: isDark ? 'rgba(118, 118, 128, 0.24)' : 'rgba(142, 142, 147, 0.12)',
-        borderRadius: 50, // Fully rounded pill shape
+        borderRadius: 50, 
         paddingVertical: 10,
         paddingHorizontal: 16,
         marginTop: 8,

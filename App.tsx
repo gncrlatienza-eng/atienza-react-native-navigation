@@ -8,7 +8,6 @@ import Homepage from './pages/Homepage';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 
-// Define navigation types
 export type RootStackParamList = {
   Home: undefined;
   Cart: undefined;

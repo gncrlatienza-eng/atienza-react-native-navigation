@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 48) / 2; // 16px padding on each side + 16px gap between cards
+const cardWidth = (width - 48) / 2; 
 
 const styles = StyleSheet.create({
   container: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: cardWidth * 0.75, // Maintain aspect ratio
+    height: cardWidth * 0.75, 
     resizeMode: 'cover',
   },
   info: {

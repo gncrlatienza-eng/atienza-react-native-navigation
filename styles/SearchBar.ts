@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 50, // Full pill shape
+    borderRadius: 50, 
     paddingHorizontal: 16,
     paddingVertical: 10,
     marginHorizontal: 16,

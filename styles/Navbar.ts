@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   navbar: {
-    // Removed all borders and shadows
     borderBottomWidth: 0,
     shadowColor: 'transparent',
     shadowOffset: {

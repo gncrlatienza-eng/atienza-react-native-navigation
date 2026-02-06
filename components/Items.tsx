@@ -5,7 +5,6 @@ import { useTheme } from '../context/ThemeContext';
 import ItemModal from './ItemModal';
 import styles from '../styles/Items';
 
-// Updated products data with local Ph prices and GB capacity
 const PRODUCTS: Product[] = [
   {
     id: '1',
